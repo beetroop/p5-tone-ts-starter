@@ -1,0 +1,16 @@
+{
+  "name": "p5-tone-ts-starter",
+  "author": "github/beetroop",
+  "scripts": {
+    "dev": "esbuild src/index.html src/sketch.ts src/style.css --bundle --watch --outdir=./build --servedir=./build --loader:.html=copy --inject:src/livereload.js",
+    "build": "esbuild src/index.html src/sketch.ts src/style.css --bundle --loader:.html=copy --outdir=./build"
+  },
+  "dependencies": {
+    "p5": "^1.9.4",
+    "tone": "^15.0.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "@types/p5": "^1.7.6"
+  }
+}
