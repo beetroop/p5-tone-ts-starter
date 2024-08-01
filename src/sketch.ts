@@ -3,7 +3,6 @@ import * as Tone from 'tone';
 
 const sketch = (p: p5) => {
     let canvas: p5.Element;
-
     const getCanvasDimensions = function (): [number, number] {
         const width = p.min(p.windowWidth, 800);
         const height = 1.5 * width;
@@ -11,8 +10,9 @@ const sketch = (p: p5) => {
     }
 
     p.preload = function () {
-        Tone.start();
-        console.log('preload executed')
+        Tone.start().then(() => {
+            console.log('preload executed')
+        })
     }
 
     p.windowResized = function () {
@@ -27,6 +27,7 @@ const sketch = (p: p5) => {
             .position(canvas.width / 2, canvas.height / 2)
             .mouseClicked(() => {
                 const synth = new Tone.Synth().toDestination();
+                synth.triggerAttackRelease('C4', '8n');
             })
     }
 
